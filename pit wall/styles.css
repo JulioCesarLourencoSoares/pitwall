@@ -1,0 +1,493 @@
+/* RESET & VARIÁVEIS global */
+:root {
+  --bg-dark: #0b0d11;
+  --bg-card: #15181e;
+  --bg-input: #0f1116;
+  --primary-red: #e10600;
+  --primary-red-hover: #ff1a14;
+  --text-main: #ffffff;
+  --text-muted: #8e95a5;
+  --border-color: #262a34;
+  
+  --mclaren: #ff8700;
+  --ferrari: #e10600;
+  --mercedes: #00d2be;
+  --audi: #8e95a5;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  font-family: 'Titillium Web', sans-serif;
+  line-height: 1.5;
+}
+
+/* HEADER */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 5%;
+  background-color: rgba(11, 13, 17, 0.95);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: 900;
+  font-style: italic;
+  letter-spacing: 1px;
+}
+.logo span { color: var(--primary-red); }
+
+.navbar nav a {
+  color: var(--text-main);
+  text-decoration: none;
+  margin: 0 1.5rem;
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  transition: color 0.3s;
+}
+
+.navbar nav a:hover {
+  color: var(--primary-red);
+}
+
+/* BOTÕES */
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  font-weight: 900;
+  font-style: italic;
+  text-decoration: none;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: center;
+}
+
+.btn-red {
+  background-color: var(--primary-red);
+  color: #fff;
+}
+.btn-red:hover {
+  background-color: var(--primary-red-hover);
+}
+
+.btn-outline {
+  background: transparent;
+  border: 1px solid #fff;
+  color: #fff;
+}
+.btn-outline:hover {
+  background-color: #fff;
+  color: var(--bg-dark);
+}
+
+.btn-block {
+  width: 100%;
+}
+
+/* Barra principal */
+.navbar {
+  display: flex;
+  justify-content: space-between; /* Empurra o logo pra esquerda, links pro meio e botão pra direita */
+  align-items: center;            /* Alinha tudo verticalmente no centro */
+  padding: 20px 5%;
+  background-color: #0b0d11;
+  border-bottom: 1px solid #262a34;
+}
+
+/* Logo PITWALL */
+.logo {
+  font-size: 1.8rem;
+  font-weight: 900;
+  font-style: italic;
+  color: #ffffff;
+  letter-spacing: 1px;
+}
+
+.logo span {
+  color: #e10600;
+}
+
+/* Links do menu (PILOTOS, CLASSIFICAÇÃO, INGRESSOS) */
+.nav-links {
+  display: flex;
+  gap: 32px; /* Espaço entre cada link */
+}
+
+.nav-links a {
+  color: #ffffff;
+  text-decoration: none; /* Remove o sublinhado azul */
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover {
+  color: #e10600; /* Fica vermelho ao passar o mouse */
+}
+
+/* Botão COMPRAR INGRESSO */
+.btn-comprar {
+  background-color: #e10600;
+  color: #ffffff;
+  text-decoration: none; /* Remove o sublinhado */
+  font-weight: 900;
+  font-style: italic;
+  font-size: 0.9rem;
+  padding: 12px 24px;
+  transition: background-color 0.2s;
+}
+
+.btn-comprar:hover {
+  background-color: #ff1a14;
+}
+
+/* HERO SECTION */
+.hero {
+  display: flex;
+  align-items: center;
+  min-height: 85vh;
+  padding: 4rem 5%;
+  background-color: var(--bg-dark);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Conteúdo da esquerda (Texto e botões) */
+.hero-content {
+  max-width: 550px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  z-index: 2; /* Garante que o texto fique ACIMA da imagem */
+}
+
+.tagline {
+  color: var(--primary-red);
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 1rem;
+}
+
+.hero-title {
+  font-size: 4rem;
+  font-weight: 900;
+  font-style: italic;
+  line-height: 1;
+  margin-bottom: 1.5rem;
+}
+.hero-title span { color: var(--primary-red); }
+
+.hero-description {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+/* Container da direita */
+.hero-media {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 48%; /* Largura controlada para a foto vertical não estourar */
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  z-index: 1;
+}
+
+/* Faixa vermelha diagonal */
+.hero-media::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: var(--primary-red);
+  clip-path: polygon(22% 0, 24.5% 0, 2.5% 100%, 0% 100%);
+  z-index: 2;
+}
+
+/* A imagem SEM ZOOM e enquadrando o carro */
+/* A div que segura a imagem */
+.banner {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 48vw;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  clip-path: polygon(24% 0, 100% 0, 100% 100%, 2% 100%);
+  z-index: 2;
+  overflow: hidden;
+}
+
+/* A tag <img> de verdade lá dentro */
+.banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Foca na Ferrari (ajuste o 62% se quiser subir ou descer um pouco o carro) */
+  object-position: center 62%; 
+  filter: brightness(0.85);
+  display: block;
+}
+
+/* Container que segura os números */
+.hero-media {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 48vw;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  z-index: 4; /* Maior que o z-index da .banner (que está 2) e da faixa (3) */
+  pointer-events: none; /* Evita bloquear cliques caso passe por cima de algo */
+}
+
+/* Os números no canto inferior direito */
+.stats-overlay {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  gap: 2.5rem;
+  padding: 2rem 3rem;
+  background: linear-gradient(to top, rgba(11, 13, 17, 0.9), transparent);
+  width: 100%;
+  justify-content: flex-end;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+}
+.stat-num {
+  font-size: 2.5rem;
+  font-weight: 900;
+  font-style: italic;
+  line-height: 1;
+}
+.stat-label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 700;
+}
+
+/* FAIXA QUADRICULADA */
+.checkered-divider {
+  height: 12px;
+  background: repeating-linear-gradient(
+    90deg,
+    #fff,
+    #fff 15px,
+    var(--primary-red) 15px,
+    var(--primary-red) 30px
+  );
+}
+
+/* LAYOUT E SEÇÕES */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 5rem 1.5rem;
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: 900;
+  font-style: italic;
+  margin-bottom: 2rem;
+}
+.section-title span {
+  color: var(--primary-red);
+  margin-right: 0.5rem;
+}
+
+/* CARDS DE PILOTOS */
+.drivers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+.driver-card {
+  background-color: var(--bg-card);
+  padding: 2rem 1.5rem;
+  border-top: 4px solid var(--border-color);
+  position: relative;
+}
+
+.border-ferrari { border-color: var(--ferrari); }
+.border-mclaren { border-color: var(--mclaren); }
+.border-mercedes { border-color: var(--mercedes); }
+.border-audi { border-color: var(--audi); }
+
+.driver-number {
+  font-size: 4rem;
+  font-weight: 900;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.15);
+  position: absolute;
+  top: 10px;
+  left: 15px;
+}
+
+.driver-info {
+  margin-top: 2rem;
+}
+.driver-info h3 { font-size: 1.2rem; font-weight: 400; }
+.driver-info p { color: var(--text-muted); font-size: 0.9rem; }
+
+/* CLASSIFICAÇÃO / TABELA */
+.filter-form {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  align-items: flex-end;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.input-group label, .form-group label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  margin-bottom: 0.4rem;
+}
+
+input, select, textarea {
+  background-color: var(--bg-input);
+  border: 1px solid var(--border-color);
+  color: #fff;
+  padding: 0.75rem 1rem;
+  font-family: inherit;
+  width: 100%;
+}
+
+.table-responsive {
+  overflow-x: auto;
+}
+
+.standings-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--bg-card);
+  text-align: left;
+}
+
+.standings-table th {
+  padding: 1rem;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.standings-table td {
+  padding: 1.2rem 1rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.pos-badge {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background-color: var(--border-color);
+  text-align: center;
+  line-height: 24px;
+  font-weight: 900;
+}
+.pos-1 { background-color: var(--primary-red); color: #fff; }
+
+.team-color {
+  display: inline-block;
+  width: 3px;
+  height: 14px;
+  margin-right: 8px;
+}
+.color-mclaren { background-color: var(--mclaren); }
+.color-ferrari { background-color: var(--ferrari); }
+.color-mercedes { background-color: var(--mercedes); }
+.color-audi { background-color: var(--audi); }
+
+.points { font-weight: 900; }
+
+/* INGRESSOS / FORMULÁRIO */
+.tickets-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 3rem;
+}
+
+.alert-box {
+  background-color: #242006;
+  border: 1px solid #736100;
+  color: #ffd700;
+  padding: 1rem;
+  margin: 1.5rem 0;
+  font-weight: 700;
+}
+
+.price-list {
+  list-style: none;
+}
+
+.price-list li {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.price { color: var(--primary-red); font-size: 1.2rem; }
+
+.ticket-form {
+  background-color: var(--bg-card);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  border-top: 4px solid var(--primary-red);
+}
+
+.form-row {
+  display: flex;
+  gap: 1rem;
+}
+.form-group { flex: 1; }
+small { color: var(--text-muted); font-size: 0.75rem; margin-top: 0.2rem; display: block; }
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 2rem;
+  border-top: 1px solid var(--border-color);
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
